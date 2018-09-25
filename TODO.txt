@@ -1,0 +1,10 @@
+- Create our DAO CLASS
+- Develop Arbre Controller
+- Create the views :
+  - read -> Open Street Map ?
+  - search -> DatagridView
+  - create
+  - update
+  - delete ?
+  - monitoring -> Bonus -> Use some good functionalities
+- Javascript handler for parameters
