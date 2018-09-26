@@ -1,24 +1,42 @@
 <?php
-include_once('dao/mongoDB.php');
-use dao\MongoDBSingleton;
+require_once "vendor/autoload.php";
+//require(__DIR__.'/vendor/mongodb/src/Database.php');
+?>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Paname Vert</title>
+  <?php include 'view/base.php';?>
+</head>
+<body>
+  <div id="tb" style="padding:3px">
+    <span>Libelle Français:</span>
+    <input id="libellefrancais" style="line-height:26px;border:1px solid #ccc">
+    <span>Adresse:</span>
+    <input id="adresse" style="line-height:26px;border:1px solid #ccc">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
+  </div>
 
-error_reporting(E_ALL & ~E_NOTICE);
-//We set our start view
-$mongoDB = MongoDBSingleton::getMongoConnection();
-
-
-var_dump($mongoDB);
-$start_view = 'arbres_search';
-//We verifiy if a view is already set and store it, otherwise we define it at empty
-$view = (isset($_GET['view'])) ? $_GET['view'] : "";
-if(!empty($view)){
-  //We get the first result as the controler name
-  $controller = explode("_", $view)[0];
-  //We get the second result as an action
-  $action = explode("_", $view)[1];
-    header('Location:/Project_MongoDB/controller/'.$controller.'.php?action='.$action);
-} else {
-  $controller = explode("_", $start_view)[0];
-  $action = explode("_", $start_view)[1];
-    header('Location:/Project_MongoDB/controller/'.$controller.'.php?action='.$action);
-}
+  <table id="dg" title="Les arbres à Paname" class="easyui-datagrid" style="width:100%;height:650px"
+          url="get_arbres.php"
+          toolbar="#toolbar"
+          rownumbers="true" fitColumns="true" singleSelect="true"
+          pagination="true"
+          >
+      <thead>
+          <tr>
+              <th field="libellefrancais" width="50">Libelle Français</th>
+              <th field="adresse" width="50">Adresse</th>
+              <th field="espece" width="50">Espece</th>
+              <th field="hauteurenm" width="50">Hauteure en M.</th>
+          </tr>
+      </thead>
+  </table>
+  <div id="toolbar">
+      <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newArbre()">Ajouter Arbre</a>
+      <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editArbre()">Editer Arbre</a>
+      <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyArbre()">Suprimer Arbre</a>
+  </div>
+</body>
+</html>
