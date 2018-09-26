@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL & ~E_NOTICE);
 //We set our start view
 $start_view = 'arbres_search';
 //We verifiy if a view is already set and store it, otherwise we define it at empty
