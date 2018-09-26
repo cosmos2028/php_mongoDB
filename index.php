@@ -6,6 +6,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 //We set our start view
 $mongoDB = MongoDBSingleton::getMongoConnection();
 
+
 var_dump($mongoDB);
 $start_view = 'arbres_search';
 //We verifiy if a view is already set and store it, otherwise we define it at empty
