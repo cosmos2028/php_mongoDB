@@ -1,154 +1,193 @@
-<?php
+<?php namespace entity;
 
-//ENTITY ARBRE
-class Arbre
+class Arbre
 {
-    public function getLibellefrancais() { 
-         return $this->libellefrancais 
-    }
-    public function setLibellefrancais($libellefrancais) { 
-         $this->libellefrancais = $libellefrancais 
-    }
-    public $libellefrancais; //String
+     private $libellefrancais;
+     private $objectid;
+     private $idemplacement;
+     private $dateplantation;
+     private $circonferenceencm;
+     private $hauteurenm;
+     private $espece;
+     private $adresse;
+     private $geo_point_2d;
+     private $arrondissement;
+     private $pepiniere;
+     private $stadedeveloppement;
+     private $remarquable;
+     private $idbase;
+     private $genre;
+     private $domanialite;
+     private $typeemplacement;
 
-    public function getObjectid() { 
-         return $this->objectid 
-    }
-    public function setObjectid($objectid) { 
-         $this->objectid = $objectid 
-    }
-    public $objectid; //int
+    /**
+     * Get the value of Libellefrancais
+     *
+     * @return mixed
+     */
+    public function getLibellefrancais()
+    {
+        return $this->libellefrancais;
+    }
 
-    public function getIdemplacement() { 
-         return $this->idemplacement 
-    }
-    public function setIdemplacement($idemplacement) { 
-         $this->idemplacement = $idemplacement 
-    }
-    public $idemplacement; //String
+    /**
+     * Set the value of Libellefrancais
+     *
+     * @param mixed libellefrancais
+     *
+     * @return self
+     */
+    public function setLibellefrancais($libellefrancais)
+    {
+        $this->libellefrancais = $libellefrancais;
 
-    public function getDateplantation() { 
-         return $this->dateplantation 
-    }
-    public function setDateplantation($dateplantation) { 
-         $this->dateplantation = $dateplantation 
-    }
-    public $dateplantation; //Date
+        return $this;
+    }
 
-    public function getCirconferenceencm() { 
-         return $this->circonferenceencm 
-    }
-    public function setCirconferenceencm($circonferenceencm) { 
-         $this->circonferenceencm = $circonferenceencm 
-    }
-    public $circonferenceencm; //int
+    /**
+     * Get the value of Objectid
+     *
+     * @return mixed
+     */
+    public function getObjectid()
+    {
+        return $this->objectid;
+    }
 
-    public function getHauteurenm() { 
-         return $this->hauteurenm 
-    }
-    public function setHauteurenm($hauteurenm) { 
-         $this->hauteurenm = $hauteurenm 
-    }
-    public $hauteurenm; //int
+    /**
+     * Set the value of Objectid
+     *
+     * @param mixed objectid
+     *
+     * @return self
+     */
+    public function setObjectid($objectid)
+    {
+        $this->objectid = $objectid;
 
-    public function getEspece() { 
-         return $this->espece 
-    }
-    public function setEspece($espece) { 
-         $this->espece = $espece 
-    }
-    public $espece; //String
+        return $this;
+    }
 
-    public function getAdresse() { 
-         return $this->adresse 
-    }
-    public function setAdresse($adresse) { 
-         $this->adresse = $adresse 
-    }
-    public $adresse; //String
+    /**
+     * Get the value of Idemplacement
+     *
+     * @return mixed
+     */
+    public function getIdemplacement()
+    {
+        return $this->idemplacement;
+    }
 
-    public function getGeo_point_2d() { 
-         return $this->geo_point_2d 
-    }
-    public function setGeo_point_2d($geo_point_2d) { 
-         $this->geo_point_2d = $geo_point_2d 
-    }
-    public $geo_point_2d; //array(double)
+    /**
+     * Set the value of Idemplacement
+     *
+     * @param mixed idemplacement
+     *
+     * @return self
+     */
+    public function setIdemplacement($idemplacement)
+    {
+        $this->idemplacement = $idemplacement;
 
-    public function getArrondissement() { 
-         return $this->arrondissement 
-    }
-    public function setArrondissement($arrondissement) { 
-         $this->arrondissement = $arrondissement 
-    }
-    public $arrondissement; //String
+        return $this;
+    }
 
-    public function getPepiniere() { 
-         return $this->pepiniere 
-    }
-    public function setPepiniere($pepiniere) { 
-         $this->pepiniere = $pepiniere 
-    }
-    public $pepiniere; //String
+    /**
+     * Get the value of Dateplantation
+     *
+     * @return mixed
+     */
+    public function getDateplantation()
+    {
+        return $this->dateplantation;
+    }
 
-    public function getStadedeveloppement() { 
-         return $this->stadedeveloppement 
-    }
-    public function setStadedeveloppement($stadedeveloppement) { 
-         $this->stadedeveloppement = $stadedeveloppement 
-    }
-    public $stadedeveloppement; //String
+    /**
+     * Set the value of Dateplantation
+     *
+     * @param mixed dateplantation
+     *
+     * @return self
+     */
+    public function setDateplantation($dateplantation)
+    {
+        $this->dateplantation = $dateplantation;
 
-    public function getRemarquable() { 
-         return $this->remarquable 
-    }
-    public function setRemarquable($remarquable) { 
-         $this->remarquable = $remarquable 
-    }
-    public $remarquable; //String
+        return $this;
+    }
 
-    public function getIdbase() { 
-         return $this->idbase 
-    }
-    public function setIdbase($idbase) { 
-         $this->idbase = $idbase 
-    }
-    public $idbase; //int
+    /**
+     * Get the value of Espece
+     *
+     * @return mixed
+     */
+    public function getEspece()
+    {
+        return $this->espece;
+    }
 
-    public function getGenre() { 
-         return $this->genre 
-    }
-    public function setGenre($genre) { 
-         $this->genre = $genre 
-    }
-    public $genre; //String
+    /**
+     * Set the value of Espece
+     *
+     * @param mixed espece
+     *
+     * @return self
+     */
+    public function setEspece($espece)
+    {
+        $this->espece = $espece;
 
-    public function getDomanialite() { 
-         return $this->domanialite 
-    }
-    public function setDomanialite($domanialite) { 
-         $this->domanialite = $domanialite 
-    }
-    public $domanialite; //String
+        return $this;
+    }
 
-    public function getTypeemplacement() { 
-         return $this->typeemplacement 
-    }
-    public function setTypeemplacement($typeemplacement) { 
-         $this->typeemplacement = $typeemplacement 
-    }
-    public $typeemplacement; //String
+    /**
+     * Get the value of Adresse
+     *
+     * @return mixed
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set the value of Adresse
+     *
+     * @param mixed adresse
+     *
+     * @return self
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Remarquable
+     *
+     * @return mixed
+     */
+    public function getRemarquable()
+    {
+        return $this->remarquable;
+    }
+
+    /**
+     * Set the value of Remarquable
+     *
+     * @param mixed remarquable
+     *
+     * @return self
+     */
+    public function setRemarquable($remarquable)
+    {
+        $this->remarquable = $remarquable;
+
+        return $this;
+    }
 
 }
 
-class Arbre
-{
-    public function getArbres() { 
-         return $this->arbres 
-    }
-    public function setArbres($arbres) { 
-         $this->arbres = $arbres 
-    }
-    public $arbres; //array(Arbre)
-
-}
+?>

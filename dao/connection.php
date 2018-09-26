@@ -1,8 +1,10 @@
 
 <?php
+
+$pwd = "Azerty01":
+$user = "hitema-mlab";
+
 try {
-	$user = "hitema-mlab";
-	$pwd = "Azerty01";
 	$manager = new MongoDB\Driver\Manager("mongodb://${user}:${pwd}@ds113923.mlab.com:13923/hitema-mlab");
 
 	$filter= [];

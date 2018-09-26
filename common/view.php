@@ -3,12 +3,7 @@
 // Used to redirect to the given url
 class View
 {
-	//First signature, because we may have some renders (without parameters)
-	public static function show($view){
-		$url = "/Project_MongoDB/view/$view.php";
-		header('Location:'.$url);
-	}
-
+	
 	//Second signature, because some pages will produce parameters
 	public static function show($view, $data)
 	{
