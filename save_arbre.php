@@ -14,23 +14,21 @@ $updateObj->{"fields.espece"} = $espece;
 $updateObj->{"fields.hauteurenm"} = $hauteurenm;
 $doc = [
 "_id" => new MongoDB\BSON\ObjectID(),
-"fields.libellefrancais" => $libellefrancais,
-"fields.adresse" => $adresse,
-"fields.espece" => $espece,
-"fields.hauteurenm" => $hauteurenm
+"libellefrancais" => $libellefrancais,
+"adresse" => $adresse,
+"espece" => $espece,
+"hauteurenm" => $hauteurenm
 ];
 
 $insRec = new MongoDB\Driver\BulkWrite;
 
-$insRec->insert($doc);
-
 try{
-
+$insRec->insert($doc);
 $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 1000);
 
 $result = $manager->executeBulkWrite('hitema-mlab.paname', $insRec, $writeConcern);
 
-if($result->getModifiedCount()){
+if($result->getInsertedCount()){
   echo json_encode(array(
 		'libellefrancais' => $libellefrancais,
 		'adresse' => $adresse,

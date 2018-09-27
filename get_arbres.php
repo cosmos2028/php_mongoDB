@@ -65,6 +65,7 @@ $cursor = $manager->executeQuery('hitema-mlab.paname', $query);
   $startNode = array();
   $pushed_array = array();
   $nodeParrent = array();
+  
 	foreach($cursor as $k => $row){
     $node = array();
     $node["objectid"] = $row->fields->objectid;
