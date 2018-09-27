@@ -26,10 +26,18 @@ require_once "vendor/autoload.php";
           >
       <thead>
           <tr>
+              <th field="$oid" width="50">_id</th>
+              <th field="objectid" width="50">Objectid</th>
               <th field="libellefrancais" width="50">Libelle Français</th>
               <th field="adresse" width="50">Adresse</th>
               <th field="espece" width="50">Espece</th>
               <th field="hauteurenm" width="50">Hauteure en M.</th>
+              <!--<th field="not used" formatter="(function(v,r,i){return formatColumn('fields.objectid',v,r,i);})" width="50">Client name</th>
+              <th field="not used" formatter="(function(v,r,i){return formatColumn('fields.libellefrancais',v,r,i);})" width="50">Client name</th>
+              <th field="not used" formatter="(function(v,r,i){return formatColumn('fields.adresse',v,r,i);})" width="50">Client name</th>
+              <th field="not used" formatter="(function(v,r,i){return formatColumn('fields.adresse',v,r,i);})" width="50">Client name</th>
+              <th field="not used" formatter="(function(v,r,i){return formatColumn('fields.espece',v,r,i);})" width="50">Client name</th>
+              <th field="not used" formatter="(function(v,r,i){return formatColumn('fields.hauteurenm',v,r,i);})" width="50">Client name</th>-->
           </tr>
       </thead>
   </table>
@@ -38,5 +46,38 @@ require_once "vendor/autoload.php";
       <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editArbre()">Editer Arbre</a>
       <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyArbre()">Suprimer Arbre</a>
   </div>
+
+  <!--//////////////DIALOG//////////////-->
+
+  <div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
+        closed="true" buttons="#dlg-buttons">
+    <div class="ftitle">Information</div>
+    <form id="fm" method="post" novalidate>
+      <div class="fitem">
+          <label>ObjectID:</label>
+          <input name="objectid" class="easyui-textbox" required="true" readonly="true" type="number">
+      </div>
+        <div class="fitem">
+            <label>Libelle Français:</label>
+            <input name="libellefrancais" class="easyui-textbox" required="true">
+        </div>
+        <div class="fitem">
+            <label>Adresse:</label>
+            <input name="adresse" class="easyui-textbox" required="true">
+        </div>
+        <div class="fitem">
+            <label>Espece:</label>
+            <input name="espece" class="easyui-textbox" required="true">
+        </div>
+        <div class="fitem">
+            <label>Hauteure en M.:</label>
+            <input type="number" name="hauteurenm" class="easyui-textbox" validType="numbers" required="true">
+        </div>
+    </form>
+</div>
+<div id="dlg-buttons">
+    <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveArbre()" style="width:90px">Save</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+</div>
 </body>
 </html>

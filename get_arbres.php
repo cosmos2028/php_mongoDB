@@ -1,10 +1,14 @@
 <?php
 require "config.php";
 
+//Pagination
 $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
 $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 10;
+//Search
+$libellefrancais = isset($_POST['libellefrancais']) ? $_POST['libellefrancais'] : '';
+$adresse = isset($_POST['adresse']) ? $_POST['adresse'] : '';
+//ERRORS REPORTING
 $flag    = isset($_GET['flag'])?intval($_GET['flag']):0;
-
 $message ='';
 
 if($flag){
@@ -35,8 +39,15 @@ try {
 
 }
 
+//Search  Purposes
+$filter = [
+  'fields.libellefrancais' => new \MongoDB\BSON\Regex($libellefrancais),
+  'fields.adresse' => new \MongoDB\BSON\Regex($adresse)
+];
+
 $skip = ($page -1) * $rows;
 
+//Pagination Purposes
 $options = [
     'limit' => $rows,
     'sort' => ['_id' => -1],
@@ -50,12 +61,13 @@ $cursor = $manager->executeQuery('hitema-mlab.paname', $query);
 	$items = array();
   $result = array();
   $result["total"] = $count;
-
+  $objectIds = array();
 	foreach($cursor as $k => $row){
-    	array_push($items, $row->fields);
-      //print_r($result[$k]->fields);
+      array_push($items, $row->fields);
+      //array_push($items,$row->_id);
 	}
   $result["rows"] = $items;
+  //$result["rows"] = $items;
 
 	echo json_encode($result);
 
