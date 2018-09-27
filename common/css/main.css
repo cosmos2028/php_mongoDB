@@ -1,0 +1,14 @@
+body{
+margin:80px;
+}
+body{
+height: 90%;
+background-image: url("../img/header2.png");
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+#tb{
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+}

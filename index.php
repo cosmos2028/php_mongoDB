@@ -10,12 +10,13 @@ require_once "vendor/autoload.php";
   <?php include 'view/base.php';?>
 </head>
 <body>
-  <div id="tb" style="padding:3px">
+  <div id="header"></div>
+  <div id="tb" style="padding:3px;">
     <span>Libelle Français:</span>
-    <input id="libellefrancais" style="line-height:26px;border:1px solid #ccc">
+    <input id="libellefrancais" style="line-height:26px;border:1px solid #ccc; border-radius: 5px;">
     <span>Adresse:</span>
-    <input id="adresse" style="line-height:26px;border:1px solid #ccc">
-    <a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">Search</a>
+    <input id="adresse" style="line-height:26px;border:1px solid #ccc; border-radius: 5px;">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="doSearch()">Search</a>
   </div>
 
   <table id="dg" title="Les arbres à Paname" class="easyui-datagrid" style="width:100%;height:650px"
@@ -38,7 +39,8 @@ require_once "vendor/autoload.php";
   <div id="toolbar">
       <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newArbre()">Ajouter Arbre</a>
       <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editArbre()">Editer Arbre</a>
-      <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyArbre()">Suprimer Arbre</a>
+      <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Suprimer Arbre</a>
+      <a href="arbre_map.php" class="easyui-linkbutton c1" style="width:120px">Voir sur la carte</a>
   </div>
 
   <!--//////////////DIALOG//////////////-->

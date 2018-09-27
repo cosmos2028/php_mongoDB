@@ -40,14 +40,15 @@ function saveArbre(){
                 $('#dg').datagrid('reload');
             }
         }
-    })};
+    });
+  }
 
 function destroyUser(){
         var row = $('#dg').datagrid('getSelected');
         if (row){
             $.messager.confirm('Confirmer','Etes-vous certain de vouloir supprimer cette reference ?',function(r){
                 if (r){
-                    $.post('destroy_arbre.php',{id:row.id},function(result){
+                    $.post('delete_arbre.php',{_id:row._id},function(result){
                         if (result.success){
                             $('#dg').datagrid('reload');
                         } else {
