@@ -11,6 +11,15 @@ require_once "vendor/autoload.php";
 </head>
 <body>
   <div id="header"></div>
+  <div class="widget center">
+
+  <div class="blur"></div>
+
+  <div class="text center">
+    <h1 class="">Paname Vert</h1>
+  </div>
+
+</div>
   <div id="tb" style="padding:3px;">
     <span>Libelle Français:</span>
     <input id="libellefrancais" style="line-height:26px;border:1px solid #ccc; border-radius: 5px;">
