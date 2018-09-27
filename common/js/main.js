@@ -1,3 +1,5 @@
+var url;
+
 function doSearch(){
       $('#dg').datagrid('load',{
           libellefrancais: $('#libellefrancais').val(),
@@ -6,9 +8,9 @@ function doSearch(){
 }
 
 function newArbre(){
-    $('#dlg').dialog('open').dialog('setTitle','New User');
+    $('#dlg').dialog('open').dialog('setTitle','Ajouter Arbre');
     $('#fm').form('clear');
-    url = 'save_user.php';
+    url = 'save_arbre.php';
 }
 
 function editArbre(){
@@ -34,13 +36,31 @@ function saveArbre(){
                     msg: result.errorMsg
                 });
             } else {
-                $('#dlg').dialog('close');        // close the dialog
-                $('#dg').datagrid('reload');    // reload the user data
+                $('#dlg').dialog('close');
+                $('#dg').datagrid('reload');
             }
         }
     })};
 
-
+function destroyUser(){
+        var row = $('#dg').datagrid('getSelected');
+        if (row){
+            $.messager.confirm('Confirmer','Etes-vous certain de vouloir supprimer cette reference ?',function(r){
+                if (r){
+                    $.post('destroy_arbre.php',{id:row.id},function(result){
+                        if (result.success){
+                            $('#dg').datagrid('reload');
+                        } else {
+                            $.messager.show({
+                                title: 'Error',
+                                msg: result.errorMsg
+                            });
+                        }
+                    },'json');
+                }
+            });
+        }
+    }
     //function formatColumn(colName, value,row){
     //  console.log("row");
     //  return "row."+colName;

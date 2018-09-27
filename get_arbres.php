@@ -62,13 +62,23 @@ $cursor = $manager->executeQuery('hitema-mlab.paname', $query);
   $result = array();
   $result["total"] = $count;
   $objectIds = array();
+  $startNode = array();
+  $pushed_array = array();
+  $nodeParrent = array();
 	foreach($cursor as $k => $row){
-      array_push($items, $row->fields);
-      //array_push($items,$row->_id);
+    $node = array();
+    $node["objectid"] = $row->fields->objectid;
+    $node["libellefrancais"] = $row->fields->libellefrancais;
+    $node["adresse"] = $row->fields->adresse;
+    $node["espece"] = $row->fields->espece;
+    $node["hauteurenm"] = $row->fields->hauteurenm;
+    foreach ($row as $key => $value) {
+      $node["_id"] = (string)$row->_id;
+    }
+      array_push($items,$node);
 	}
-  $result["rows"] = $items;
-  //$result["rows"] = $items;
 
+  $result["rows"] = $items;
 	echo json_encode($result);
 
 ?>

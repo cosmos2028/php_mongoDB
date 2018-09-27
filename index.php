@@ -26,18 +26,12 @@ require_once "vendor/autoload.php";
           >
       <thead>
           <tr>
-              <th field="$oid" width="50">_id</th>
+              <th field="_id" width="50">_id</th>
               <th field="objectid" width="50">Objectid</th>
               <th field="libellefrancais" width="50">Libelle Français</th>
               <th field="adresse" width="50">Adresse</th>
               <th field="espece" width="50">Espece</th>
               <th field="hauteurenm" width="50">Hauteure en M.</th>
-              <!--<th field="not used" formatter="(function(v,r,i){return formatColumn('fields.objectid',v,r,i);})" width="50">Client name</th>
-              <th field="not used" formatter="(function(v,r,i){return formatColumn('fields.libellefrancais',v,r,i);})" width="50">Client name</th>
-              <th field="not used" formatter="(function(v,r,i){return formatColumn('fields.adresse',v,r,i);})" width="50">Client name</th>
-              <th field="not used" formatter="(function(v,r,i){return formatColumn('fields.adresse',v,r,i);})" width="50">Client name</th>
-              <th field="not used" formatter="(function(v,r,i){return formatColumn('fields.espece',v,r,i);})" width="50">Client name</th>
-              <th field="not used" formatter="(function(v,r,i){return formatColumn('fields.hauteurenm',v,r,i);})" width="50">Client name</th>-->
           </tr>
       </thead>
   </table>
@@ -54,8 +48,12 @@ require_once "vendor/autoload.php";
     <div class="ftitle">Information</div>
     <form id="fm" method="post" novalidate>
       <div class="fitem">
+          <label>_id:</label>
+          <input name="_id" class="easyui-textbox" readonly="true">
+      </div>
+      <div class="fitem">
           <label>ObjectID:</label>
-          <input name="objectid" class="easyui-textbox" required="true" readonly="true" type="number">
+          <input name="objectid" class="easyui-textbox" readonly="true" type="number">
       </div>
         <div class="fitem">
             <label>Libelle Français:</label>
