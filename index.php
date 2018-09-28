@@ -25,6 +25,8 @@ require_once "vendor/autoload.php";
     <input id="libellefrancais" style="line-height:26px;border:1px solid #ccc; border-radius: 5px;">
     <span>Adresse:</span>
     <input id="adresse" style="line-height:26px;border:1px solid #ccc; border-radius: 5px;">
+    <span>Espece:</span>
+    <input id="espece" style="line-height:26px;border:1px solid #ccc; border-radius: 5px;">
     <a href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="doSearch()">Search</a>
   </div>
 
