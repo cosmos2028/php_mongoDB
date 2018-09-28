@@ -3,7 +3,8 @@ var url;
 function doSearch(){
       $('#dg').datagrid('load',{
           libellefrancais: $('#libellefrancais').val(),
-          adresse: $('#adresse').val()
+          adresse: $('#adresse').val(),
+          espece: $('#espece').val()
       });
 }
 

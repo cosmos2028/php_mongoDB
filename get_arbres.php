@@ -7,6 +7,9 @@ $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 10;
 //Search
 $libellefrancais = isset($_POST['libellefrancais']) ? $_POST['libellefrancais'] : '';
 $adresse = isset($_POST['adresse']) ? $_POST['adresse'] : '';
+$espece = isset($_POST['espece']) ? $_POST['espece'] : '';
+//$hauteurenm = isset($_POST['hauteurenm']) ? $_POST['hauteurenm'] : int(0);
+
 //ERRORS REPORTING
 $flag    = isset($_GET['flag'])?intval($_GET['flag']):0;
 $message ='';
@@ -42,7 +45,9 @@ try {
 //Search  Purposes
 $filter = [
   'fields.libellefrancais' => new \MongoDB\BSON\Regex($libellefrancais),
-  'fields.adresse' => new \MongoDB\BSON\Regex($adresse)
+  'fields.adresse' => new \MongoDB\BSON\Regex($adresse),
+  //'fields.hauteurenm' => new \MongoDB\BSON\Regex((string)$hauteurenm),
+  'fields.espece' => new \MongoDB\BSON\Regex($espece),
 ];
 
 $skip = ($page -1) * $rows;
@@ -65,7 +70,7 @@ $cursor = $manager->executeQuery('hitema-mlab.paname', $query);
   $startNode = array();
   $pushed_array = array();
   $nodeParrent = array();
-  
+
 	foreach($cursor as $k => $row){
     $node = array();
     $node["objectid"] = $row->fields->objectid;
